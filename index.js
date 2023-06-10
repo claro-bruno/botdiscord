@@ -7,7 +7,7 @@ const { TOKEN, CLIENT_ID, GUILD_ID } = process.env;
 // const { token } = require('./config.json');
 
 
-// importing commands
+// importing commandssss
 const fs = require("node:fs");
 const path = require("node:path");
 const commandsPath = path.join(__dirname,  "commands");
