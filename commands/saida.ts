@@ -62,7 +62,7 @@ module.exports = {
                     }
                  })
             } else {
-                await interaction.reply('Working on it');
+                await interaction.reply('Registo de Saída Inválido!');
                 await interaction.deleteReply();
             }
         }

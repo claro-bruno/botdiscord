@@ -63,7 +63,7 @@ module.exports = {
                  })
             }
             else {
-                await interaction.reply('Working on it');
+                await interaction.reply('Registo de Entrada Inválido!');
                 await interaction.deleteReply();
             }
             
