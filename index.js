@@ -46,17 +46,23 @@ client.login(TOKEN);
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return
 	const command = interaction.client.commands.get(interaction.commandName)
+	// await interaction.deferReply({ ephemeral: true });
+	// console.log(command)
 	if (!command) {
 		console.error("Comando não encontrado!")
+		
 		return
 	} 
 	try 
 	{
+		// await interaction.deferReply({ ephemeral: true });
+		// await wait(3000);
+		// interaction.reply({ embeds: [embed] })
 		await command.execute(interaction)
 	}
 	catch(err) {
 		console.error(err);
-		await interaction.reply("Houve um erro ao executar esse comando!")
+		await interaction.reply({ content: `Command you requested help for does not exist!`, ephemeral: true  });
 	}
 	// console.log(interaction)
 })

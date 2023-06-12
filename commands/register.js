@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require("discord.js");
 
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('registrar')
@@ -21,9 +22,8 @@ module.exports = {
                 timeZone: 'America/Belem',
             });
             const dataFormatada = dataComIntl.format(date);
-            // const dataFormatada = date.toLocaleString('pt-BR', { timezone: 'UTC' })
-            // today.toISOString();
             const tipo = type === 'entrada' ? 'Entrada' : 'Saida';
-            await interaction.reply(`Registro de ${tipo}: \n Nome: ${interaction.member.nickname}  \n Horário de ${tipo}: ${dataFormatada}`)
+			await interaction.reply('Working on it');
+            await interaction.editReply(`Registro de ${tipo}: \n Nome: ${interaction.member.nickname}  \n Horário de ${tipo}: ${dataFormatada}`)
 	},
 };
