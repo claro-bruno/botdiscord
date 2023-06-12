@@ -50,7 +50,7 @@ module.exports = {
                 // const result = await YOUR_FUNCTION();
                 await interaction.editReply(`Registro de Entrada: \n Nome: ${interaction.member.nickname}  \n Horário de Entrada: ${dataFormatada}`);
                 // await interaction.reply(`Registro de Entrada: \n Nome: ${interaction.member.nickname}  \n Horário de Entrada: ${dataFormatada}`)
-
+                console.log('batata');
                 await prisma.ponto.create({
                     data: {
                         data: dataFormatada,
