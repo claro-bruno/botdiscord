@@ -1,6 +1,6 @@
 // Require the necessary discord.js classes
-const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
-const dotenv  = require('dotenv')
+import { Client, Events, GatewayIntentBits, Collection } from 'discord.js';
+import dotenv from 'dotenv';
 dotenv.config();
 
 const { TOKEN, CLIENT_ID, GUILD_ID } = process.env; 
@@ -11,10 +11,10 @@ const { TOKEN, CLIENT_ID, GUILD_ID } = process.env;
 const fs = require("node:fs");
 const path = require("node:path");
 const commandsPath = path.join(__dirname,  "commands");
-const commandsFiles =  fs.readdirSync(commandsPath).filter(file => file.endsWith(".js"))
+const commandsFiles =  fs.readdirSync(commandsPath).filter((file: any) => file.endsWith(".ts"))
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client: any = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.commands = new Collection();
 
 for (const file of commandsFiles) {
@@ -33,7 +33,7 @@ for (const file of commandsFiles) {
 
 // When the client is ready, run this code (only once)
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
-client.once(Events.ClientReady, c => {
+client.once(Events.ClientReady, (c: any) => {
 	console.log(`Ready! Logged in as ${c.user.tag}`);
 });
 
@@ -43,7 +43,7 @@ client.login(TOKEN);
 
 // Listener
 
-client.on(Events.InteractionCreate, async interaction => {
+client.on(Events.InteractionCreate, async (interaction: any) => {
 	if (!interaction.isChatInputCommand()) return
 	const command = interaction.client.commands.get(interaction.commandName)
 	// await interaction.deferReply({ ephemeral: true });

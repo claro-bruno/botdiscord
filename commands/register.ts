@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+import { SlashCommandBuilder } from "discord.js";
 
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
 				.addChoices(
 					{ name: 'entrada', value: 'entrada' },
 					{ name: 'saida', value: 'saida' },				)),
-	async execute(interaction) {
+	async execute(interaction: any) {
 		const type = interaction.options.getString('type');
 		const date = Date.now();
             // const novaData = new Date(Date.UTC(date., 09, 20, 10, 11, 08));
